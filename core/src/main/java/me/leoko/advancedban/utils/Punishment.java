@@ -64,6 +64,10 @@ public class Punishment {
     }
 
     public void create(boolean silent) {
+        if (reason.length() >= 100) {
+            mi.sendMessage(mi.getPlayer(operator), "Reason to long!");
+            return;
+        }
         if (id != -1) {
             Universal.get().log("!! Failed! AB tried to overwrite the punishment:");
             Universal.get().log("!! Failed at: " + toString());
